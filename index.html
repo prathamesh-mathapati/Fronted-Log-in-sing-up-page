@@ -95,32 +95,40 @@
                 viewBtn.type = 'text'
             }
         })
+
         logBtn.addEventListener('click', () => {
             console.log('5678');
 
 
             //condition for check pass and email
 
-            var checker = 0
-            newlocalData.filter(item => {
+            if (!userEmail.value && !viewBtn.value) {
+                alert('Go to log in again')
+            } else {
 
-                if (item.email == userEmail.value && item.password == viewBtn.value) {
-                    checker += 1
 
+                var checker = 0
+                newlocalData.filter(item => {
+
+                    if (item.email == userEmail.value && item.password == viewBtn.value) {
+                        checker += 1
+
+
+                    }
+
+                })
+                if (`${checker}` == false) {
+                    location.reload()
+
+                    alert('please check your password and email address other please sing up ')
+                } else {
+                    location.reload()
+
+                    alert('Your login was successful')
 
                 }
-
-            })
-            if (`${checker}` == false) {
-                location.reload()
-
-                alert('please check your password and email address other please sing up ')
-            } else {
-                location.reload()
-
-                alert('Your login was successful')
-
             }
+
         })
 
 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" href="/staly.css">
+</head>
+
+<body>
+
+    <section>
+
+
+        <div id="Sign" class="modal" style="
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #474e5d;
+        padding-top: 50px;
+    ">
+            <form class="modal-content" style="background-color: #fefefe;
+                     margin: 5% auto 15% auto;
+                     border: 1px solid #888;
+                     width: 50%;
+                     border-radius: 10px;
+                     " action="">
+                <div class="container">
+
+                    <h1>Sign Up</h1>
+                    <div class="input-box">
+                        <div class="img-1">
+                            <label for="image-input"> <b>Upload
+                                    image</b>
+                                <div id="display-image" style=" 
+                                    width: 114px;
+                                    border-radius: 50%;
+                                    height: 115px;
+                                    background-position: center;
+                                    background-size: cover;
+                                    display: flex;
+                                    background-image: url(/placeholder.png);
+">
+
+                                    <input type="file" id="image-input" class="mytext" style="display: none;"
+                                        accept="image/jpeg, image/png, image/jpg">
+                                </div>
+
+
+
+                            </label>
+                        </div>
+
+
+                        <label for=""><b>First name</b></label>
+                        <input type="text" id="fname" class="password " placeholder="Enter first name" required>
+
+                        <label for=""><b>Last name</b></label>
+                        <input type="text" id="lname" class="password" placeholder="Enter last name" required>
+
+
+                        <label for=""><b>Email</b></label>
+                        <input type="email" id="email" class="password" placeholder="Enter email Email" name=""
+                            required>
+
+                        <label for=""><b>Password</b></label>
+                        <input type="password" id="password1" class="password" placeholder="Enter Password" name=""
+                            required>
+
+                        <label for=""><b>Confirm password</b>
+                        </label>
+                        <div class="display-no"
+                            style=" background-color:  rgb(235, 202, 202); display: flex; justify-content: center; padding: .7rem; border-radius: 5px; ">
+                            <button
+                                style="background-color:  rgb(235, 202, 202); border:none;  color: rgb(153, 47, 47);">Password
+                                is
+                                not
+                                same please enter current password </button>
+                        </div>
+                        <input type="password" id="cpassword" class="password" placeholder="Enter confirm password"
+                            name="" required>
+
+                        <label for=""><b> Date of birth</b></label>
+                        <input type="date" style="color: #9a9a9a;" id="date" class=" password"
+                            placeholder="Enter Date of birth" name="" required>
+
+
+
+                        <label for=""><b>Address</b></label>
+                        <input type="address" id="address" class="password" placeholder="Enter Address" name=""
+                            required>
+
+
+                        <div style="display:flex; justify-content:center;">
+
+                            <button type="submit" style=" cursor: pointer;" onfocus="signupbtnFn()"
+                                class="signupbtn">Sign Up</button>
+                        </div>
+                        <p style="display: flex; justify-content:center; cursor: pointer;">Have an account ?
+                            <a href="/index.html" style="color:blue"><b> Log in</b></a>
+                        </p>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+<script>
+    'use strict';
+
+    const fname = document.querySelector('#fname')
+    const lname = document.querySelector('#lname')
+    const email = document.querySelector('#email')
+    const password = document.querySelector('#password1')
+    const cpassword = document.querySelector('#cpassword')
+    const address = document.querySelector('#address')
+    const date = document.querySelector('#date')
+    const displayNo = document.querySelector('.display-no')
+
+    console.log(date.value);
+    let blakArry = []
+    const localStoragedata = JSON.parse(localStorage.getItem('data'))
+    // console.log(localStoragedata);
+
+    if (localStoragedata !== null) {
+        blakArry = [...localStoragedata];
+
+    }
+    console.log(blakArry);
+
+    const signupbtnFn = () => {
+
+        if (password.value !== cpassword.value) {
+            displayNo.classList.remove('display-no')
+
+        } else {
+            displayNo.classList.add('display-no')
+
+            // add data to the localStorage
+            const blankOject = {}
+
+            const addData = () => {
+                blankOject['fname'] = fname.value
+                blankOject['lname'] = lname.value
+                blankOject['email'] = email.value
+                blankOject['password'] = password.value
+                blankOject['cpassword'] = cpassword.value
+                blankOject['address'] = address.value
+                blankOject['date'] = date.value
+            }
+            addData()
+            blakArry.push(blankOject)
+            localStorage.setItem("data", JSON.stringify(blakArry));
+            // console.log(blakArry, 'wertyui');
+        }
+
+
+    }
+
+
+
+    const image_input = document.querySelector("#image-input");
+    image_input.addEventListener("change", function () {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+            const uploaded_image = reader.result;
+            document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+        });
+        reader.readAsDataURL(this.files[0]);
+    });
+
+
+
+
+
+</script>
+
+</html>

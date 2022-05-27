@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Log in page</title>
+    <meta name="title" content="Log in page">
+    <meta name="description"
+        content="Therefore, if the page that users are taken to, after a successful log-in is a dashboard, call it a dashboard. Trying to bless it with an unfamiliar fancy term will only serve to confuse users, and that's what we try to avoid here">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="Log in page">
+    <meta property="og:description"
+        content="Therefore, if the page that users are taken to, after a successful log-in is a dashboard, call it a dashboard. Trying to bless it with an unfamiliar fancy term will only serve to confuse users, and that's what we try to avoid here">
+    <meta property="og:image" content="https://i.postimg.cc/06JD73bs/images.png'">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="Log in page">
+    <meta property="twitter:description"
+        content="Therefore, if the page that users are taken to, after a successful log-in is a dashboard, call it a dashboard. Trying to bless it with an unfamiliar fancy term will only serve to confuse users, and that's what we try to avoid here">
+    <meta property="twitter:image" content="https://i.postimg.cc/06JD73bs/images.png'">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <title>Log In</title>
+
+
+
+    <link rel="shortcut icon" href="/images.png">
+
+    <link rel="stylesheet" href="/staly.css">
+</head>
+
+<body>
+
+    <section class="container-fluid d-flex justify-content-center  g-4 login">
+        <form action="" class="d-flex flex-column p-4  justify-content-center  w-25 shadow m-5 bg-body rounded"
+            style="gap:.5rem;">
+
+
+            <div class="d-flex justify-content-center"> <label class="fs-4" for="">Login</label>
+            </div>
+
+
+            <label for="email"> Email ID</label>
+            <input type="email" class="form-control userEmail" placeholder="Enter Email"
+                aria-describedby="basic-addon2">
+
+            <label for="password"> Password</label>
+            <div class="input-group mb-3" style="cursor: pointer;">
+                <input type="password" class="form-control passwor" placeholder="Enter Password"
+                    aria-describedby="basic-addon2">
+                <span class="input-group-text bg-white " id="basic-addon2"><img style="width:1rem"
+                        class=" img img-fluid" src="/view.png" alt=""></span>
+            </div>
+            <label class="btn btn-outline-primary m-3 Log" for="btnradio3"> LogIn </label>
+            <p style="font-size: 0.9rem;"> Don't have an account? <a href="/other.html" class="hover"
+                    style="text-decoration: none;">Sign up</a>
+            </p>
+
+            <!-- <p>Forget passwor ? </p> -->
+        </form>
+
+    </section>
+
+
+    <script>
+        "use strict";
+        const viwe = document.querySelector('#basic-addon2')
+        const viewBtn = document.querySelector('.passwor')
+        const userEmail = document.querySelector('.userEmail')
+        const logBtn = document.querySelector('.Log')
+
+
+
+        const newlocalData = JSON.parse(localStorage.getItem('data'))
+        console.log(newlocalData);
+        //  eaye
+        viwe.addEventListener('click', () => {
+            if (viewBtn.type === "text") {
+                viewBtn.type = "password"
+            } else {
+                viewBtn.type = 'text'
+            }
+        })
+        logBtn.addEventListener('click', () => {
+            console.log('5678');
+
+
+            //condition for check pass and email
+
+            var checker = 0
+            newlocalData.filter(item => {
+
+                if (item.email == userEmail.value && item.password == viewBtn.value) {
+                    checker += 1
+
+
+                }
+
+            })
+            if (`${checker}` == false) {
+                location.reload()
+
+                alert('please check your password and email address other please sing up ')
+            } else {
+                location.reload()
+
+                alert('Your login was successful')
+
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#fname,
+.password {
+    background-color: #ddd;
+    outline: none;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    cursor: pointer;
+
+}
+
+
+.login {
+
+    background-image: url(./blue-abstract-background-260nw-418135966.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+
+
+}
+
+.container {
+    padding: 16px;
+}
+
+.signupbtn {
+    border: 1px solid blue;
+    background-color: white;
+    color: blue;
+    border-radius: 5px;
+    padding: .5rem 2rem;
+}
+
+.signupbtn:hover {
+    background-color: blue;
+    color: white;
+}
+
+.display-no {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    margin: 0 0;
+}
+
+.input-box {
+    padding: 2rem 1rem 0 1rem;
+}
+
+.input-box {
+    /* height: 50px; */
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.hover:hover {
+    color: red;
+
+}
+
+.mytext {
+    /* position: absolute; */
+    /* width: 6.4rem; */
+    /* height: 8.4rem; */
+    left: 1rem;
+    font-size: 14px;
+    color: #9a9a9a;
+    margin-top: -2rem;
+}
+
+#myfile {
+    display: none;
+}
+
+.placehoder {
+    height: 6.4rem;
+    width: 6.4rem;
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+
+
+.img-1 {
+    margin-top: 1rem;
+    position: relative;
+}

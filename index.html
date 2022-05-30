@@ -46,7 +46,7 @@
 <body>
 
     <section class="container-fluid d-flex  pt-5 justify-content-center  g-4 login">
-        <form action="" class="d-flex flex-column p-4   justify-content-center  w-25 shadow m-5 bg-body rounded"
+        <form action="" class="d-flex flex-column p-4    justify-content-center  w-25 shadow m-5 bg-body rounded"
             style="gap:.5rem;">
 
 
@@ -66,8 +66,10 @@
                         class=" img img-fluid" src="/view.png" alt=""></span>
             </div>
             <label class="btn btn-outline-primary m-3 Log" for="btnradio3"> LogIn </label>
+
             <p style="font-size: 0.9rem;"> Don't have an account? <a href="/other.html" class="hover"
                     style="text-decoration: none;">Sign up</a>
+
             </p>
 
             <!-- <p>Forget passwor ? </p> -->
@@ -75,19 +77,22 @@
 
 
 
-
     </section>
+    <!-- 
+    <span class="d-flex flex-column justify-content-center"
+        style="align-items: center; gap:1rem; background-color: antiquewhite; padding: 10rem;"> Go to Sign
+        Up
+
+
+        <button type="button" class="btn btn-danger  okbtn">ok</button>
+
+    </span> -->
+
 
 
     <section class="userData"></section>
 
-    <!-- <div class="shadow-lg p-5 m-5 bg-body rounded">
-        <p>Frist name:-${user.fname}</p>
-        <p>Last name:-${user.lname}</p>
-        <p>Email:-${user.email}</p>
-        <p>Address:-${user.address}</p>
-        <p>Date of birth:-${user.date}</p>
-    </div> -->
+
 
 
     <script>
@@ -115,6 +120,8 @@
 
         const newlocalData = JSON.parse(localStorage.getItem('data'))
         console.log(newlocalData);
+
+
         //  eaye
         viwe.addEventListener('click', () => {
             if (viewBtn.type === "text") {
@@ -129,9 +136,18 @@
 
             //condition for check pass and email
 
-            if (!userEmail.value && !viewBtn.value) {
+
+
+            if (!userEmail.value && !viewBtn.value && (newlocalData === null)) {
+                // console.log('null');
+
+
+
+
                 alert('Go to Sign Up ')
             } else {
+                // console.log('null-1');
+
                 var checker = 0
                 newlocalData.filter(item => {
                     if (item.email == userEmail.value && item.password == viewBtn.value) {
@@ -141,21 +157,18 @@
                 let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
                 console.log(currentData);
                 if (`${checker}` == false) {
-                    location.reload()
                     alert('please check your password and email address other please sing up ')
+                    // location.reload()
 
                 } else {
-                    // location.reload()
-                    // logIn.classList.add('display-b')
                     let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
-                    console.log(currentData);
-                    // let FN, LN, EI
+                    // console.log(currentData);
 
 
 
 
                     logIn.classList.add('display-b')
-                    console.log(currentData[0]);
+                    // console.log(currentData[0]);
 
 
 
@@ -166,18 +179,6 @@
                         <p>Address:-${currentData[0].address}</p>
                         <p>Date of birth:-${currentData[0].date}</p>
                     </div>`
-
-                    // userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded">
-                    //     <p>Frist name:-</p>
-                    //     <p>Last name:-</p>
-                    //     <p>Email:-</p>
-                    //     <p>Address:-</p>
-                    //     <p>Date of birth:-</p>
-                    // </div>`
-
-
-
-
 
 
 

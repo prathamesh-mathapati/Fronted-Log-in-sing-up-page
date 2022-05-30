@@ -58,7 +58,12 @@ body {
 .display-last-name,
 .display-img,
 .popLog,
-.display-b {
+.display-b,
+.display-address,
+.display-cpassword,
+.display-date,
+.display-password,
+.display-email {
     position: absolute;
     top: -9999px;
     left: -9999px;

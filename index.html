@@ -90,8 +90,8 @@
 
 
 
-    <section class="userData"></section>
-
+    <section class="userData" style="display: flex; justify-content:center"></section>
+    <a href="./index.html">Go back</a>
 
 
 
@@ -104,17 +104,7 @@
         const logIn = document.querySelector('.login')
         const userData = document.querySelector('.userData')
         // console.log(userData);
-        const htmldata = (item => {
-            // console.log(item.fname, item.lname, item.email, item.address, item.date);
-            `<div class="shadow-lg p-5 login m bg-body rounded">
-            <p>Frist name:-${item.fname}</p>
-            <p>Last name:-${item.lname}</p>
-            <p>Email:-${item.email}</p>
-            <p>Address:-${item.address}</p>
-            <p>Date of birth:-${item.date}</p>
-        </div>`
-        }
-        )
+
 
 
 
@@ -147,13 +137,21 @@
                 alert('Go to Sign Up ')
             } else {
                 // console.log('null-1');
-
                 var checker = 0
-                newlocalData.filter(item => {
-                    if (item.email == userEmail.value && item.password == viewBtn.value) {
-                        checker += 1
-                    }
-                })
+
+                try {
+
+
+                    newlocalData.filter(item => {
+                        if (item.email == userEmail.value && item.password == viewBtn.value) {
+                            checker += 1
+                        }
+                    })
+                } catch {
+                    alert('Go to Sign Up')
+
+                }
+
                 let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
                 console.log(currentData);
                 if (`${checker}` == false) {
@@ -172,13 +170,20 @@
 
 
 
-                    userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded">
+                    userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded" style="width:29rem">
+
                         <p>Frist name:-${currentData[0].fname}</p>
                         <p>Last name:-${currentData[0].lname}</p>
                         <p>Email:-${currentData[0].email}</p>
                         <p>Address:-${currentData[0].address}</p>
                         <p>Date of birth:-${currentData[0].date}</p>
+                        <a href="./index.html">Go back</a>
+
+                        
+
                     </div>`
+
+
 
 
 

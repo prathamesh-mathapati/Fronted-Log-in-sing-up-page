@@ -20,7 +20,7 @@
     <meta property="og:image" content="https://i.postimg.cc/06JD73bs/images.png'">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
+    <meta pro perty="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://metatags.io/">
     <meta property="twitter:title" content="Log in page">
     <meta property="twitter:description"
@@ -45,8 +45,8 @@
 
 <body>
 
-    <section class="container-fluid d-flex justify-content-center  g-4 login">
-        <form action="" class="d-flex flex-column p-4  justify-content-center  w-25 shadow m-5 bg-body rounded"
+    <section class="container-fluid d-flex  pt-5 justify-content-center  g-4 login">
+        <form action="" class="d-flex flex-column p-4   justify-content-center  w-25 shadow m-5 bg-body rounded"
             style="gap:.5rem;">
 
 
@@ -73,7 +73,21 @@
             <!-- <p>Forget passwor ? </p> -->
         </form>
 
+
+
+
     </section>
+
+
+    <section class="userData"></section>
+
+    <!-- <div class="shadow-lg p-5 m-5 bg-body rounded">
+        <p>Frist name:-${user.fname}</p>
+        <p>Last name:-${user.lname}</p>
+        <p>Email:-${user.email}</p>
+        <p>Address:-${user.address}</p>
+        <p>Date of birth:-${user.date}</p>
+    </div> -->
 
 
     <script>
@@ -82,6 +96,20 @@
         const viewBtn = document.querySelector('.passwor')
         const userEmail = document.querySelector('.userEmail')
         const logBtn = document.querySelector('.Log')
+        const logIn = document.querySelector('.login')
+        const userData = document.querySelector('.userData')
+        // console.log(userData);
+        const htmldata = (item => {
+            // console.log(item.fname, item.lname, item.email, item.address, item.date);
+            `<div class="shadow-lg p-5 login m bg-body rounded">
+            <p>Frist name:-${item.fname}</p>
+            <p>Last name:-${item.lname}</p>
+            <p>Email:-${item.email}</p>
+            <p>Address:-${item.address}</p>
+            <p>Date of birth:-${item.date}</p>
+        </div>`
+        }
+        )
 
 
 
@@ -97,13 +125,12 @@
         })
 
         logBtn.addEventListener('click', () => {
-            console.log('5678');
-
+            // console.log('5678');
 
             //condition for check pass and email
 
             if (!userEmail.value && !viewBtn.value) {
-                alert('Go to Sign Up again')
+                alert('Go to Sign Up ')
             } else {
                 var checker = 0
                 newlocalData.filter(item => {
@@ -111,14 +138,53 @@
                         checker += 1
                     }
                 })
+                let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
+                console.log(currentData);
                 if (`${checker}` == false) {
                     location.reload()
                     alert('please check your password and email address other please sing up ')
 
                 } else {
-                    location.reload()
+                    // location.reload()
+                    // logIn.classList.add('display-b')
+                    let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
+                    console.log(currentData);
+                    // let FN, LN, EI
 
-                    alert(`Your login was successful`)
+
+
+
+                    logIn.classList.add('display-b')
+                    console.log(currentData[0]);
+
+
+
+                    userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded">
+                        <p>Frist name:-${currentData[0].fname}</p>
+                        <p>Last name:-${currentData[0].lname}</p>
+                        <p>Email:-${currentData[0].email}</p>
+                        <p>Address:-${currentData[0].address}</p>
+                        <p>Date of birth:-${currentData[0].date}</p>
+                    </div>`
+
+                    // userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded">
+                    //     <p>Frist name:-</p>
+                    //     <p>Last name:-</p>
+                    //     <p>Email:-</p>
+                    //     <p>Address:-</p>
+                    //     <p>Date of birth:-</p>
+                    // </div>`
+
+
+
+
+
+
+
+
+                    // alert(`Your login was successful  rahul@3embed.com`)
+
+
 
                 }
             }

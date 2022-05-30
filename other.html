@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-
-
     <link rel="stylesheet" href="/staly.css">
+    <link rel="shortcut icon" href="/images.png">
+
+
+
+
 </head>
 
 <body>
@@ -28,7 +30,8 @@
         background-color: #474e5d;
         padding-top: 50px;
     ">
-            <form class="modal-content" style="background-color: #fefefe;
+            <form class="modal-1" name="p" novalidate style="background-color: #fefefe;
+            
                      margin: 5% auto 15% auto;
                      border: 1px solid #888;
                      width: 50%;
@@ -36,64 +39,113 @@
                      " action="">
                 <div class="container">
 
-                    <h1>Sign Up</h1>
+                    <h1 style="display: flex; flex-direction:column; align-items:center;">Sign
+                        Up</h1>
                     <div class="input-box">
-                        <div class="img-1">
-                            <label for="image-input"> <b>Upload
-                                    image</b>
+                        <div class="img-1"
+                            style="display: flex; justify-content:center; align-items: center; flex-direction: column; gap:1rem;">
+
+                            <label for="image-input" style="display: flex; flex-direction:column; justify-content:center; align-items: center;
+                                ">
+
+
                                 <div id="display-image" style=" 
                                     width: 114px;
                                     border-radius: 50%;
+                                    /* border: 1px solid rgb(149, 149, 212); */
                                     height: 115px;
                                     background-position: center;
                                     background-size: cover;
                                     display: flex;
-                                    background-image: url(/placeholder.png);
+                                    background-image: url(/images.png);
 ">
 
-                                    <input type="file" id="image-input" class="mytext" style="display: none;"
+                                    <input type="file" id="image-input" class="mytext" required style="display: none;"
                                         accept="image/jpeg, image/png, image/jpg">
+
                                 </div>
 
 
 
                             </label>
+
+                            <b>Upload
+                                image</b>
+                            <p class="display-img" style="color: red;">
+                                ** Fill the Image
+                            </p>
+
                         </div>
+
+
 
 
                         <label for=""><b>First name</b></label>
                         <input type="text" id="fname" class="password " placeholder="Enter first name" required>
+                        <p class="display-fname" style="color: red;">
+                            ** Fill the first name
+                        </p>
 
                         <label for=""><b>Last name</b></label>
                         <input type="text" id="lname" class="password" placeholder="Enter last name" required>
+                        <p class="display-last-name" style="color: red;">
+                            ** Fill the Last name
+                        </p>
 
 
                         <label for=""><b>Email</b></label>
                         <input type="email" id="email" class="password" placeholder="Enter email Email" name=""
                             required>
+                        <!-- <p class="" style="color: red;">
+                            ** Fill the email id is invalid.
+                        </p> -->
 
-                        <label for=""><b>Password</b></label>
-                        <input type="password" id="password1" class="password" placeholder="Enter Password" name=""
-                            required>
+                        <label for=""><b>Password</b>
+
+                            <div
+                                style="display: flex; ; justify-content: space-evenly; align-items: center; background: #f1f1f1;">
+                                <input type="password" id="password1" class="password"
+                                    style=" margin: 0rem; width: 92%;" placeholder="Enter password" name="" required>
+                                <img class="eye-1" style="width:1rem; height: 1rem;" src="/view.png" alt="">
+                            </div>
+
+
+                        </label>
+
+                        <div> &nbsp;</div>
+
+
+
 
                         <label for=""><b>Confirm password</b>
+
+                            <div
+                                style="display: flex; ; justify-content: space-evenly; align-items: center; background: #f1f1f1;">
+                                <input type="password" id="cpassword" class="password"
+                                    style=" margin: 0rem; width: 92%;" placeholder="Enter confirm password" name=""
+                                    required>
+                                <img class="eye-2" style="width:1rem; height: 1rem;" src="/view.png" alt="">
+                            </div>
+                            <div> &nbsp;</div>
+
+
+
                         </label>
-                        <div class="display-no"
-                            style=" background-color:  rgb(235, 202, 202); display: flex; justify-content: center; padding: .7rem; border-radius: 5px; ">
-                            <button
-                                style="background-color:  rgb(235, 202, 202); border:none;  color: rgb(153, 47, 47);">Password
-                                is
-                                not
-                                same please enter current password </button>
-                        </div>
-                        <input type="password" id="cpassword" class="password" placeholder="Enter confirm password"
-                            name="" required>
+                        <p class="display-no" style="color: red; padding: .5rem; ">
+                            ** Password
+                            is
+                            not
+                            same please enter current password
+                        </p>
 
                         <label for=""><b> Date of birth</b></label>
-                        <input type="date" style="color: #9a9a9a;" id="date" class=" password"
+
+                        <input type="date" style="color: #9a9a9a;" id="date2" class="password"
                             placeholder="Enter Date of birth" name="" required>
 
-
+                        <p class="display-age" style="color: red;">
+                            ** your are not 18 years old
+                        </p>
 
                         <label for=""><b>Address</b></label>
                         <input type="address" id="address" class="password" placeholder="Enter Address" name=""
@@ -112,6 +164,15 @@
                     </div>
                 </div>
             </form>
+            <div class="popLog" style="padding-top: 7rem; color: white; flex-direction: column; display: flex; align-items: center; justify-content:
+                center; font-size: 5rem;">
+                Your
+                login successful <a href="/index.html" class="hover c"
+                    style="text-decoration: none; font-size: 1rem;">Go
+                    login
+                    page</a>
+
+            </div>
         </div>
 
 
@@ -119,76 +180,145 @@
 
 
 
-</body>
+    <script>
+        'use strict';
 
-<script>
-    'use strict';
+        const fname = document.querySelector('#fname')
+        const lname = document.querySelector('#lname')
+        const email = document.querySelector('#email')
+        const password = document.querySelector('#password1')
+        const cpassword = document.querySelector('#cpassword')
+        const address = document.querySelector('#address')
+        const date1 = document.querySelector('#date2')
+        // console.log(date1);
+        const displayNo = document.querySelector('.display-no')
+        const displayAge = document.querySelector('.display-age')
+        const displayFname = document.querySelector('.display-fname')
+        const displayLname = document.querySelector('.display-last-name')
+        const displayImg = document.querySelector('.display-img')
+        const eye = document.querySelector('.eye-1')
+        const CEye = document.querySelector('.eye-2')
+        const popLog1 = document.querySelector('.popLog')
+        const modal = document.querySelector('.modal-1')
+        let years = new Date().getFullYear();
 
-    const fname = document.querySelector('#fname')
-    const lname = document.querySelector('#lname')
-    const email = document.querySelector('#email')
-    const password = document.querySelector('#password1')
-    const cpassword = document.querySelector('#cpassword')
-    const address = document.querySelector('#address')
-    const date = document.querySelector('#date')
-    const displayNo = document.querySelector('.display-no')
 
-    console.log(date.value);
-    let blakArry = []
-    const localStoragedata = JSON.parse(localStorage.getItem('data'))
-    // console.log(localStoragedata);
+        eye.addEventListener('click', () => {
 
-    if (localStoragedata !== null) {
-        blakArry = [...localStoragedata];
 
-    }
-    console.log(blakArry);
-
-    const signupbtnFn = () => {
-
-        if (password.value !== cpassword.value) {
-            displayNo.classList.remove('display-no')
-
-        } else {
-            displayNo.classList.add('display-no')
-
-            // add data to the localStorage
-            const blankOject = {}
-
-            const addData = () => {
-                blankOject['fname'] = fname.value
-                blankOject['lname'] = lname.value
-                blankOject['email'] = email.value
-                blankOject['password'] = password.value
-                blankOject['cpassword'] = cpassword.value
-                blankOject['address'] = address.value
-                blankOject['date'] = date.value
+            if (password.type == "text") {
+                password.type = "password"
+            } else {
+                password.type = "text"
             }
-            addData()
-            blakArry.push(blankOject)
-            localStorage.setItem("data", JSON.stringify(blakArry));
-            // console.log(blakArry, 'wertyui');
+        })
+
+        CEye.addEventListener('click', () => {
+            if (cpassword.type == "text") {
+                cpassword.type = "password"
+            } else {
+                cpassword.type = "text"
+            }
+        })
+
+        let blakArry = []
+        const localStoragedata = JSON.parse(localStorage.getItem('data'))
+
+        if (localStoragedata !== null) {
+            blakArry = [...localStoragedata];
+
+        }
+
+        // signup btn 
+
+        const signupbtnFn = () => {
+
+
+
+
+            if (!lname.value) {
+                displayLname.classList.remove('display-last-name')
+
+            } else {
+                displayLname.classList.add('display-last-name')
+            }
+
+
+            if (!fname.value) {
+                displayFname.classList.remove('display-fname')
+
+            } else {
+                displayFname.classList.add('display-fname')
+
+
+            }
+
+            if (lname.value || fname.value || address.value) {
+
+
+                if ((years - Number(date1.value.slice(0, 4))) > 18) {
+                    console.log('21s', date1.value);
+
+                    displayAge.classList.add('display-age')
+                    if (password.value !== cpassword.value) {
+                        displayNo.classList.remove('display-no')
+
+                    } else {
+                        displayNo.classList.add('display-no')
+                        // add data to the localStorage
+
+                        const blankOject = {}
+
+                        const addData = () => {
+                            blankOject['fname'] = fname.value
+                            blankOject['lname'] = lname.value
+                            blankOject['email'] = email.value
+                            blankOject['password'] = password.value
+                            blankOject['cpassword'] = cpassword.value
+                            blankOject['address'] = address.value
+                            blankOject['date'] = date1.value
+                        }
+                        addData()
+                        console.log(blankOject);
+
+                        popLog1.classList.remove('popLog')
+                        modal.classList.add('popLog')
+
+                        blakArry.push(blankOject)
+                        localStorage.setItem("data", JSON.stringify(blakArry));
+                    }
+
+
+                } else {
+                    console.log('21', date1.value);
+                    displayAge.classList.remove('display-age')
+                }
+            }
+
+
         }
 
 
-    }
 
 
-
-    const image_input = document.querySelector("#image-input");
-    image_input.addEventListener("change", function () {
-        const reader = new FileReader();
-        reader.addEventListener("load", () => {
-            const uploaded_image = reader.result;
-            document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+        const image_input = document.querySelector("#image-input");
+        image_input.addEventListener("change", function () {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                const uploaded_image = reader.result;
+                document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+            });
+            reader.readAsDataURL(this.files[0]);
         });
-        reader.readAsDataURL(this.files[0]);
-    });
 
 
 
 
 
-</script>
+    </script>
+
+</body>
+
+
 
 </html>

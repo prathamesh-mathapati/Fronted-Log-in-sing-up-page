@@ -20,6 +20,10 @@ body {
 
 }
 
+.m {
+    margin: 10rem;
+}
+
 
 .login {
 
@@ -48,11 +52,18 @@ body {
     color: white;
 }
 
-.display-no {
+.display-no,
+.display-age,
+.display-fname,
+.display-last-name,
+.display-img,
+.popLog,
+.display-b {
     position: absolute;
     top: -9999px;
     left: -9999px;
     margin: 0 0;
+
 }
 
 .input-box {
@@ -70,6 +81,11 @@ body {
     color: red;
 
 }
+
+.c {
+    color: chartreuse;
+}
+
 
 .mytext {
     /* position: absolute; */

@@ -147,52 +147,51 @@
                             checker += 1
                         }
                     })
-                } catch {
-                    alert('Go to Sign Up')
-
-                }
-
-                let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
-                console.log(currentData);
-                if (`${checker}` == false) {
-                    alert('please check your password and email address other please sing up ')
-                    // location.reload()
-
-                } else {
                     let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
-                    // console.log(currentData);
+                    console.log(currentData);
+                    if (`${checker}` == false) {
+                        alert('please check your password and email address other please sing up ')
+
+                    } else {
+                        let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
 
 
 
 
-                    logIn.classList.add('display-b')
-                    // console.log(currentData[0]);
+                        logIn.classList.add('display-b')
 
 
 
-                    userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded" style="width:29rem">
-
-                        <p>Frist name:-${currentData[0].fname}</p>
-                        <p>Last name:-${currentData[0].lname}</p>
-                        <p>Email:-${currentData[0].email}</p>
-                        <p>Address:-${currentData[0].address}</p>
-                        <p>Date of birth:-${currentData[0].date}</p>
-                        <a href="./index.html">Go back</a>
-
-                        
-
-                    </div>`
-
-
+                        userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded" style="width:29rem">
+    
+                            <p>Frist name:-${currentData[0].fname}</p>
+                            <p>Last name:-${currentData[0].lname}</p>
+                            <p>Email:-${currentData[0].email}</p>
+                            <p>Address:-${currentData[0].address}</p>
+                            <p>Date of birth:-${currentData[0].date}</p>
+                            <a href="./index.html">Go back</a>
+    
+                            
+    
+                        </div>`
 
 
 
 
-                    // alert(`Your login was successful  rahul@3embed.com`)
 
 
+                        // alert(`Your login was successful  rahul@3embed.com`)
+
+
+
+                    }
+                } catch {
+
+                    alert('Go to Sign Up')
+                    location.reload()
 
                 }
+
             }
 
         })

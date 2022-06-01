@@ -245,7 +245,7 @@
             }
         })
 
-        let blakArry = []
+        let blakArry = [{}]
 
         const localStoragedata = JSON.parse(localStorage.getItem('data'))
 
@@ -258,6 +258,8 @@
         // signup btn 
 
         const signupbtnFn = () => {
+
+            // show popups
 
 
             ((Imge.value == '') ? displayImg.innerHTML = '** Fill the Image' : displayImg.innerHTML = '');
@@ -280,7 +282,6 @@
 
 
                 ((countEmail) ? displayEmail.innerHTML = '**These email is allredy exists please try onther email id' : displayEmail.innerHTML = '');
-                console.log(countEmail);
 
             }
             catch (e) {
@@ -291,7 +292,8 @@
 
 
 
-            if (lname.value && fname.value && address.value && date1.value && password.value && email.value && cpassword.value && Imge.value && password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/) && cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/) && email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/) && countEmail) {
+            if (lname.value && fname.value && address.value && date1.value && password.value && email.value && cpassword.value && Imge.value && password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/) && cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/) && email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/) && !countEmail) {
+                console.log(countEmail);
 
                 if ((years - Number(date1.value.slice(0, 4))) > 18) {
                     console.log('21s', date1.value);

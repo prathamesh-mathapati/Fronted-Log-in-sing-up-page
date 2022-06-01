@@ -41,7 +41,7 @@
 
                     <h1 style="display: flex; flex-direction:column; align-items:center;">Sign
                         Up</h1>
-                    <div class="input-box">
+                    <div class="input-box" style="display: flex; flex-direction: column; gap: .5rem;">
                         <div class="img-1"
                             style="display: flex; justify-content:center; align-items: center; flex-direction: column; gap:1rem;">
 
@@ -52,7 +52,6 @@
                                 <div id="display-image" style=" 
                                     width: 114px;
                                     border-radius: 50%;
-                                    /* border: 1px solid rgb(149, 149, 212); */
                                     height: 115px;
                                     background-position: center;
                                     background-size: cover;
@@ -61,7 +60,7 @@
 ">
 
                                     <input type="file" id="image-input" class="mytext image-input-1" required
-                                        style="display: none;" accept="image/jpeg, image/png, image/jpg">
+                                        style="display: none;" accept="image/jpeg, image/png, image/jpg" />
 
                                 </div>
 
@@ -72,7 +71,6 @@
                             <b>Upload
                                 image</b>
                             <p class="display-img" style="color: red;">
-                                ** Fill the Image
                             </p>
 
                         </div>
@@ -81,42 +79,42 @@
 
 
                         <label for=""><b>First name</b></label>
-                        <input type="text" id="fname" class="password " placeholder="Enter first name" required>
+                        <input type="text" id="fname" class="password " placeholder="Enter first name" required />
                         <p class="display-fname" style="color: red;">
-                            ** Fill the first name
                         </p>
 
+
+
                         <label for=""><b>Last name</b></label>
-                        <input type="text" id="lname" class="password" placeholder="Enter last name" required>
+                        <input type="text" id="lname" class="password" placeholder="Enter last name" required />
                         <p class="display-last-name" style="color: red;">
-                            ** Fill the Last name
                         </p>
+
 
 
                         <label for=""><b>Email</b></label>
                         <input type="email" id="email" class="password" placeholder="Enter email Email" name=""
-                            required>
+                            required />
                         <p class="display-email" style="color: red;">
-                            ** Fill the email id.
                         </p>
+
 
                         <label for=""><b>Password</b>
 
                             <div
                                 style="display: flex; ; justify-content: space-evenly; align-items: center; background: #f1f1f1;">
                                 <input type="password" id="password1" class="password"
-                                    style=" margin: 0rem; width: 92%;" placeholder="Enter password" name="" required>
+                                    style=" margin: 0rem; width: 92%;" placeholder="Enter password" name="" required />
                                 <img class="eye-1" style="width:1rem; height: 1rem;" src="/view.png" alt="">
                             </div>
 
 
                         </label>
                         <p class="display-password" style="color: red;">
-                            ** Fill the password
                         </p>
 
 
-                        <div> &nbsp;</div>
+
 
 
 
@@ -130,11 +128,9 @@
                                     required>
                                 <img class="eye-2" style="width:1rem; height: 1rem;" src="/view.png" alt="">
                             </div>
-                            <div> &nbsp;</div>
                         </label>
 
                         <p class="display-cpassword" style="color: red;">
-                            ** Fill the Confirm password
                         </p>
                         <p class="display-no" style="color: red; padding: .5rem; ">
                             ** Password
@@ -151,12 +147,13 @@
 
 
                         <p class="display-date" style="color: red;">
-                            ** Fill the date
                         </p>
 
                         <p class="display-age" style="color: red;">
                             ** your are not 18 years old
                         </p>
+
+
 
                         <label for=""><b>Address</b></label>
                         <input type="address" id="address" class="password" placeholder="Enter Address" name=""
@@ -164,14 +161,15 @@
 
 
                         <p class="display-address" style="color: red;">
-                            ** Fill the Address
                         </p>
+
+
 
 
                         <div style="display:flex; justify-content:center;">
 
-                            <button type="submit" style=" cursor: pointer;" onfocus="signupbtnFn()"
-                                class="signupbtn">Sign Up</button>
+                            <input type="button" style=" cursor: pointer;" onfocus="signupbtnFn()" class="signupbtn"
+                                value="Submit" />
                         </div>
                         <p style="display: flex; justify-content:center; cursor: pointer;">Have an account ?
                             <a href="/index.html" style="color:blue"><b> Log in</b></a>
@@ -198,7 +196,7 @@
 
     <script>
         'use strict';
-
+        const elements = document.querySelectorAll('input')
         const fname = document.querySelector('#fname')
         const lname = document.querySelector('#lname')
         const email = document.querySelector('#email')
@@ -213,6 +211,8 @@
         const displayLname = document.querySelector('.display-last-name')
         const displayImg = document.querySelector('.display-img')
 
+        const passMessge = document.querySelector('.passmessge')
+
 
         const displayCpassword = document.querySelector('.display-cpassword')
         const displayDate = document.querySelector('.display-date')
@@ -224,6 +224,7 @@
         const modal = document.querySelector('.modal-1')
         const displayAddress = document.querySelector('.display-address')
         let years = new Date().getFullYear();
+        const emailregex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
 
 
         eye.addEventListener('click', () => {
@@ -245,6 +246,7 @@
         })
 
         let blakArry = []
+
         const localStoragedata = JSON.parse(localStorage.getItem('data'))
 
         if (localStoragedata !== null) {
@@ -255,75 +257,70 @@
         // signup btn 
 
         const signupbtnFn = () => {
-            // console.log(querySelector);
-            console.log(Imge.value);
+
+            // let ob = {
+            //     'text': /[A-Z][a-z]/,
+            //     'password': /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+            //     'email': /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
+            // }
+            // console.log(fname.type);
+
+            ((Imge.value == '') ? displayImg.innerHTML = '** Fill the Image' : displayImg.innerHTML = '');
+            ((fname.type == 'text' && fname.value.match(/[A-Z][a-z]/)) ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
+            ((lname.type == 'text' && lname.value.match(/[A-Z][a-z]/)) ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
+            ((address.value == '') ? displayAddress.innerHTML = '** Fill the address' : displayAddress.innerHTML = '');
+            ((date1.value == '') ? displayDate.innerHTML = '** Fill the date' : displayDate.innerHTML = '');
+            ((fname.value == '') ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
+            ((lname.value == '') ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
+
+
+
+            (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) ? displayEmail.innerHTML = '** Fill email id' : displayEmail.innerHTML = '');
+
+            (!(password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displaPasword.innerHTML = '** Fill valid passwold' : displaPasword.innerHTML = '');
+            (!(cpassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displayCpassword.innerHTML = '** Fill valid comfrom passwold' : displayCpassword.innerHTML = '');
 
 
 
 
 
-            if (!lname.value) {
-                displayLname.classList.remove('display-last-name')
 
-            } else {
-                displayLname.classList.add('display-last-name')
-            }
+            // if (Imge.value == "") {
+            //     displayImg.classList.remove('display-img')
 
-
-            if (Imge.value == "") {
-                displayImg.classList.remove('display-img')
-
-            } else {
-                displayImg.classList.add('display-img')
-            }
-
-
-            if (!email.value) {
-                displayEmail.classList.remove('display-email')
-
-            } else {
-                displayEmail.classList.add('display-email')
-            }
-
-            if (!date1.value) {
-                displayDate.classList.remove('display-date')
-
-            } else {
-                displayDate.classList.add('display-date')
-            }
-            if (!password.value) {
-                displaPasword.classList.remove('display-password')
-
-            } else {
-                displaPasword.classList.add('display-password')
-            }
+            // } else {
+            //     displayImg.classList.add('display-img')
+            // }
 
 
 
-            if (!fname.value) {
-                displayFname.classList.remove('display-fname')
-
-            } else {
-                displayFname.classList.add('display-fname')
-            }
-
-            if (!address.value) {
-                displayAddress.classList.remove('display-address')
-
-            } else {
-                displayAddress.classList.add('display-address')
-            }
+            // // console.log(querySelector);
+            // // console.log(Imge.value);
 
 
-            if (!cpassword.value) {
-                displayCpassword.classList.remove('display-cpassword')
+            // function check(value, type) {
+            //     if (type == "text" || type == "password" || type == "email") {
+            //         let regex = ob[type];
+            //         console.log(regex);
+            //         return regex.test(value);
+            //     }
+            // }
 
-            } else {
-                displayCpassword.classList.add('display-cpassword')
-            }
+            // for (let i = 0; i < elements.length; i++) {
+            //     // console.log(elements[i].type);
+            //     check(elements[i].value, elements[i].type.toString()) ? console.log('works') : displayCpassword.innerHTML = '** Fill the Confirm password';
 
-            if (lname.value && fname.value && address.value && date1.value && password.value && email.value && cpassword.value) {
+            //     if (elements[i].type.toString() == 'text') {
+            //         check(elements[i].value, elements[i].type.toString()) ? console.log('works') : displayFname.innerHTML = '** Fill the  first name';
 
+            //     }
+            // }
+
+
+
+
+
+            if (lname.value && fname.value && address.value && date1.value && password.value && email.value && cpassword.value && Imge.value && password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/) && cpassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/) && email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) {
 
                 if ((years - Number(date1.value.slice(0, 4))) > 18) {
                     console.log('21s', date1.value);
@@ -334,6 +331,7 @@
 
                     } else {
                         displayNo.classList.add('display-no')
+
                         // add data to the localStorage
 
                         const blankOject = {}
@@ -360,13 +358,25 @@
 
 
                 } else {
-                    console.log('21', date1.value);
+                    // console.log('21', date1.value);
                     displayAge.classList.remove('display-age')
                 }
             }
 
 
         }
+
+        // console.log('your password is valid');
+
+        //     } else {
+        //     passMessge.innerHTML = '** Your password is invalid please check your password'
+
+        // }
+
+
+
+
+        // }
 
 
 

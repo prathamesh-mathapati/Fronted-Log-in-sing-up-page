@@ -12,7 +12,7 @@ body {
     outline: none;
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    /* margin: 5px 0 22px 0; */
     display: inline-block;
     border: none;
     background: #f1f1f1;
@@ -35,6 +35,10 @@ body {
 
 }
 
+.scle :hover {
+    transform: scale(1.02);
+}
+
 .container {
     padding: 16px;
 }
@@ -54,16 +58,18 @@ body {
 
 .display-no,
 .display-age,
-.display-fname,
-.display-last-name,
-.display-img,
+/* .display-fname, */
+/* .display-last-name, */
+/* .display-img, */
+.chakePassword,
 .popLog,
 .display-b,
-.display-address,
-.display-cpassword,
-.display-date,
-.display-password,
-.display-email {
+/* .display-address, */
+/* .display-cpassword, */
+/* .display-date, */
+/* .display-password, */
+/* .display-email, */
+.goTo {
     position: absolute;
     top: -9999px;
     left: -9999px;

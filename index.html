@@ -103,7 +103,6 @@
                 <button type="button" class="btn btn-danger   okokbtnbtn">ok</button>
             </a>
 
-
         </span>
 
     </section>
@@ -220,7 +219,7 @@
                         console.log(currentData[0].imge.slice(11, 1000), typeof currentData[0].imge);
 
                         userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded" style="width:51rem">
-                            <img class="rounded-circle img-thumbnail" style="width: 6rem; height: 5rem" src=".${currentData[0].imge.slice(11, 1000)}" alt="">
+                            <img class="rounded-circle img-thumbnail" style="width: 6rem; height: 5rem" src="${currentData[0].imge}" alt="">
                             <p>Frist name:-${currentData[0].fname}</p>
                             <p>Last name:-${currentData[0].lname}</p>
                             <p>Email:-${currentData[0].email}</p>

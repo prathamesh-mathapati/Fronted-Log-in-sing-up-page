@@ -213,7 +213,7 @@
 
         const passMessge = document.querySelector('.passmessge')
 
-
+        let uploaded_image = ''
         const displayCpassword = document.querySelector('.display-cpassword')
         const displayDate = document.querySelector('.display-date')
         const displaPasword = document.querySelector('.display-password')
@@ -309,6 +309,21 @@
 
                         const blankOject = {}
 
+                        function getBase64Image(img) {
+                            console.log(img);
+                            var canvas = document.createElement("canvas");
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+
+                            var ctx = canvas.getContext("2d");
+                            ctx.drawImage(img, 0, 0);
+
+                            var dataURL = canvas.toDataURL("image/png");
+
+                            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+                        }
+
+
                         const addData = () => {
                             blankOject['fname'] = fname.value
                             blankOject['lname'] = lname.value
@@ -317,7 +332,7 @@
                             blankOject['cpassword'] = cpassword.value
                             blankOject['address'] = address.value
                             blankOject['date'] = date1.value
-                            blankOject['imge'] = Imge.value
+                            blankOject['imge'] = uploaded_image
                         }
                         addData()
                         console.log(blankOject);
@@ -348,7 +363,7 @@
         image_input.addEventListener("change", function () {
             const reader = new FileReader();
             reader.addEventListener("load", () => {
-                const uploaded_image = reader.result;
+                uploaded_image = reader.result;
                 document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
             });
             reader.readAsDataURL(this.files[0]);

@@ -276,9 +276,12 @@
             if (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/))) {
                 passMessge.innerHTML = '** Fill email id'
                 passMessge.classList.remove('passmessge')
+                displayEmail.classList.add('passmessge')
 
             } else {
                 passMessge.classList.add('passmessge')
+                displayEmail.classList.remove('passmessge')
+
 
                 passMessge.innerHTML = ''
 

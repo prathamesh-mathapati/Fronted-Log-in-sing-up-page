@@ -253,17 +253,12 @@
             blakArry = [...localStoragedata];
 
         }
+        console.log(blakArry);
 
         // signup btn 
 
         const signupbtnFn = () => {
 
-            // let ob = {
-            //     'text': /[A-Z][a-z]/,
-            //     'password': /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-            //     'email': /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
-            // }
-            // console.log(fname.type);
 
             ((Imge.value == '') ? displayImg.innerHTML = '** Fill the Image' : displayImg.innerHTML = '');
             ((fname.type == 'text' && fname.value.match(/[A-Z][a-z]/)) ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
@@ -273,50 +268,16 @@
             ((fname.value == '') ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
             ((lname.value == '') ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
 
-
-
             (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) ? displayEmail.innerHTML = '** Fill email id' : displayEmail.innerHTML = '');
 
-            (!(password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displaPasword.innerHTML = '** Fill valid passwold' : displaPasword.innerHTML = '');
-            (!(cpassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displayCpassword.innerHTML = '** Fill valid comfrom passwold' : displayCpassword.innerHTML = '');
+            (!(password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displaPasword.innerHTML = '** Please fill valid passwold' : displaPasword.innerHTML = '');
+            (!(cpassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displayCpassword.innerHTML = '**Please fill valid comfrom passwold' : displayCpassword.innerHTML = '');
+            let countEmail = 0
 
+            blakArry.filter(item => { if (item.email == email.value) countEmail++ })
 
-
-
-
-
-            // if (Imge.value == "") {
-            //     displayImg.classList.remove('display-img')
-
-            // } else {
-            //     displayImg.classList.add('display-img')
-            // }
-
-
-
-            // // console.log(querySelector);
-            // // console.log(Imge.value);
-
-
-            // function check(value, type) {
-            //     if (type == "text" || type == "password" || type == "email") {
-            //         let regex = ob[type];
-            //         console.log(regex);
-            //         return regex.test(value);
-            //     }
-            // }
-
-            // for (let i = 0; i < elements.length; i++) {
-            //     // console.log(elements[i].type);
-            //     check(elements[i].value, elements[i].type.toString()) ? console.log('works') : displayCpassword.innerHTML = '** Fill the Confirm password';
-
-            //     if (elements[i].type.toString() == 'text') {
-            //         check(elements[i].value, elements[i].type.toString()) ? console.log('works') : displayFname.innerHTML = '** Fill the  first name';
-
-            //     }
-            // }
-
-
+                ((countEmail) ? displayEmail.innerHTML = '**These email is allredy exists please try onther email id' : displayEmail.innerHTML = '');
+            console.log(countEmail);
 
 
 
@@ -358,22 +319,12 @@
 
 
                 } else {
-                    // console.log('21', date1.value);
                     displayAge.classList.remove('display-age')
                 }
             }
 
 
         }
-
-        // console.log('your password is valid');
-
-        //     } else {
-        //     passMessge.innerHTML = '** Your password is invalid please check your password'
-
-        // }
-
-
 
 
         // }

@@ -270,18 +270,28 @@
 
             (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) ? displayEmail.innerHTML = '** Fill email id' : displayEmail.innerHTML = '');
 
-            (!(password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displaPasword.innerHTML = '** Please fill valid passwold' : displaPasword.innerHTML = '');
-            (!(cpassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)) ? displayCpassword.innerHTML = '**Please fill valid comfrom passwold' : displayCpassword.innerHTML = '');
+            (!(password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displaPasword.innerHTML = '** Please fill valid passwold' : displaPasword.innerHTML = '');
+            (!(cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displayCpassword.innerHTML = '**Please fill valid comfrom passwold' : displayCpassword.innerHTML = '');
             let countEmail = 0
 
             blakArry.filter(item => { if (item.email == email.value) countEmail++ })
 
+            try {
+
+
                 ((countEmail) ? displayEmail.innerHTML = '**These email is allredy exists please try onther email id' : displayEmail.innerHTML = '');
-            console.log(countEmail);
+                console.log(countEmail);
+
+            }
+            catch (e) {
+                console.log(e);
+
+            }
 
 
 
-            if (lname.value && fname.value && address.value && date1.value && password.value && email.value && cpassword.value && Imge.value && password.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/) && cpassword.value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/) && email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) {
+
+            if (lname.value && fname.value && address.value && date1.value && password.value && email.value && cpassword.value && Imge.value && password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/) && cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/) && email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/) && countEmail) {
 
                 if ((years - Number(date1.value.slice(0, 4))) > 18) {
                     console.log('21s', date1.value);

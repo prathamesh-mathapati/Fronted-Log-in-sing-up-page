@@ -80,6 +80,8 @@
 
                         <label for=""><b>First name</b></label>
                         <input type="text" id="fname" class="password " placeholder="Enter first name" required />
+                        <p class="display-fname1" style="color: red;">
+                        </p>
                         <p class="display-fname" style="color: red;">
                         </p>
 
@@ -210,6 +212,7 @@
         const displayNo = document.querySelector('.display-no')
         const displayAge = document.querySelector('.display-age')
         const displayFname = document.querySelector('.display-fname')
+        const displayFname1 = document.querySelector('.display-fname1')
         const displayLname = document.querySelector('.display-last-name')
         const displayImg = document.querySelector('.display-img')
 
@@ -265,13 +268,26 @@
 
 
             ((Imge.value == '') ? displayImg.innerHTML = '** Fill the Image' : displayImg.innerHTML = '');
-            ((fname.type == 'text' && fname.value.match(/[A-Z][a-z]/)) ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
-            ((lname.type == 'text' && lname.value.match(/[A-Z][a-z]/)) ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
+            ((!fname.value.match(/^[a-zA-Z\-]+$/)) ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
+            ((!lname.value.match(/^[a-zA-Z\-]+$/)) ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
             ((address.value == '') ? displayAddress.innerHTML = '** Fill the address' : displayAddress.innerHTML = '');
             ((date1.value == '') ? displayDate.innerHTML = '** Fill the date' : displayDate.innerHTML = '');
-            ((fname.value == '') ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
-            ((lname.value == '') ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
+            // ((fname.value == '') ? displayFname1.innerHTML = '** Fill the frist name',displayFname1.classList.remove('display-fname1'): displayFname1.innerHTML = '');
+            // ((lname.value == '') ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
             // (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) ? displayEmail.innerHTML = '** Fill email id' : displayEmail.innerHTML = 'ertyui');
+            // if (fname.value == '') {
+            //     displayFname1.classList.remove('display-fname1')
+            //     displayFname1.innerHTML = '** Fill the frists name'
+            //     displayFname.classList.add('display-fname1')
+
+            // } else {
+            //     displayFname1.innerHTML = ''
+            //     displayFname1.classList.add('display-fname1')
+            //     displayFname.classList.remove('display-fname1')
+
+
+
+            // }
 
             if (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/))) {
                 passMessge.innerHTML = '** Fill email id'
@@ -287,8 +303,8 @@
 
             }
             console.log(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/));
-            (!(password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displaPasword.innerHTML = '** Please fill valid passwold' : displaPasword.innerHTML = '');
-            (!(cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displayCpassword.innerHTML = '**Please fill valid comfrom passwold' : displayCpassword.innerHTML = '');
+            (!(password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displaPasword.innerHTML = '** Please fill valid passwold.' : displaPasword.innerHTML = '');
+            (!(cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displayCpassword.innerHTML = '**Please fill valid comfrom passwold.' : displayCpassword.innerHTML = '');
             let countEmail = 0
 
             blakArry.filter(item => { if (item.email == email.value) countEmail++ })

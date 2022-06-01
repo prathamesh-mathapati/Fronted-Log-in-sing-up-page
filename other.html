@@ -95,6 +95,8 @@
                         <label for=""><b>Email</b></label>
                         <input type="email" id="email" class="password" placeholder="Enter email Email" name=""
                             required />
+                        <p class="passmessge" style="color: red;">
+                        </p>
                         <p class="display-email" style="color: red;">
                         </p>
 
@@ -269,9 +271,19 @@
             ((date1.value == '') ? displayDate.innerHTML = '** Fill the date' : displayDate.innerHTML = '');
             ((fname.value == '') ? displayFname.innerHTML = '** Fill the frist name' : displayFname.innerHTML = '');
             ((lname.value == '') ? displayLname.innerHTML = '** Fill the last name' : displayLname.innerHTML = '');
+            // (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) ? displayEmail.innerHTML = '** Fill email id' : displayEmail.innerHTML = 'ertyui');
 
-            (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/)) ? displayEmail.innerHTML = '** Fill email id' : displayEmail.innerHTML = '');
+            if (!(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/))) {
+                passMessge.innerHTML = '** Fill email id'
+                passMessge.classList.remove('passmessge')
 
+            } else {
+                passMessge.classList.add('passmessge')
+
+                passMessge.innerHTML = ''
+
+            }
+            console.log(email.value.match(/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/));
             (!(password.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displaPasword.innerHTML = '** Please fill valid passwold' : displaPasword.innerHTML = '');
             (!(cpassword.value.match(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/)) ? displayCpassword.innerHTML = '**Please fill valid comfrom passwold' : displayCpassword.innerHTML = '');
             let countEmail = 0
@@ -309,19 +321,6 @@
 
                         const blankOject = {}
 
-                        function getBase64Image(img) {
-                            console.log(img);
-                            var canvas = document.createElement("canvas");
-                            canvas.width = img.width;
-                            canvas.height = img.height;
-
-                            var ctx = canvas.getContext("2d");
-                            ctx.drawImage(img, 0, 0);
-
-                            var dataURL = canvas.toDataURL("image/png");
-
-                            return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-                        }
 
 
                         const addData = () => {

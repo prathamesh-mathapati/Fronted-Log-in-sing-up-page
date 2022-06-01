@@ -90,15 +90,19 @@
 
     <section class="container goTo scle login ">
 
-        <span class="d-flex flex-column login justify-content-center shadow-lg p-3 mb-5 bg-body rounded" style="align-items: center; gap:1rem; background-color: antiquewhite; padding: 1rem;
+        <span class="d-flex flex-column login loginG justify-content-center shadow-lg p-3 mb-5 bg-body rounded" style="align-items: center; gap:1rem; background-color: antiquewhite; padding: 1rem;
             margin: 11rem 28rem;">
 
 
             Go to Sign
             Up
 
+            <a href="/index.html">
 
-            <button type="button" class="btn btn-danger  okbtn">ok</button>
+
+                <button type="button" class="btn btn-danger   okokbtnbtn">ok</button>
+            </a>
+
 
         </span>
 
@@ -107,7 +111,7 @@
 
     <section class="container  scle  chakePassword ">
 
-        <span class="d-flex flex-column login justify-content-center shadow-lg p-3 mb-5 bg-body rounded" style="align-items: center; gap:1rem; background-color: antiquewhite; padding: 1rem;
+        <span class="d-flex flex-column login  justify-content-center shadow-lg p-3 mb-5 bg-body rounded" style="align-items: center; gap:1rem; background-color: antiquewhite; padding: 1rem;
             margin: 11rem 27rem;">
 
             Please check your password and email address other Please sing up
@@ -132,6 +136,7 @@
         const userEmail = document.querySelector('.userEmail')
         const logBtn = document.querySelector('.Log')
         const logIn = document.querySelector('.login')
+        const loginG = document.querySelector('.loginG')
         const userData = document.querySelector('.userData')
         const GoToSign = document.querySelector('.goTo')
         const LogInemail = document.querySelector('.loginemail')
@@ -145,10 +150,10 @@
 
         //go button click
 
-        GoToSign.addEventListener('click', () => {
-            GoToSign.classList.add('goTo');
-            logIn.classList.remove('goTo')
-        })
+        // GoToSign.addEventListener('click', () => {
+        //     GoToSign.classList.add('goTo');
+        //     logIn.classList.remove('goTo')
+        // })
 
         chakePassword.addEventListener('click', () => {
             chakePassword.classList.add('chakePassword');
@@ -208,14 +213,11 @@
                     } else {
                         let currentData = newlocalData.filter(item => item.email == userEmail.value && item.password == viewBtn.value)
 
-
-
-
-
                         logIn.classList.add('display-b')
+                        // var dataImage = localStorage.getItem('imgData');
+                        // bannerImg = document.getElementById('tableBanner');
+                        // bannerImg.src = "data:image/png;base64," + currentData[0].imge.slice(11, 1000);
                         console.log(currentData[0].imge.slice(11, 1000), typeof currentData[0].imge);
-
-
 
                         userData.innerHTML = `<div class="shadow-lg p-5 login m bg-body rounded" style="width:51rem">
                             <img class="rounded-circle img-thumbnail" style="width: 6rem; height: 5rem" src=".${currentData[0].imge.slice(11, 1000)}" alt="">
@@ -226,16 +228,7 @@
                             <p>Date of birth:-${currentData[0].date}</p>
                             <a href="./index.html">Go back</a>
                         </div>`
-
-
-
-
-
-
                         // alert(`Your login was successful  rahul@3embed.com`)
-
-
-
                     }
                 } catch (e) {
                     console.log(e);
